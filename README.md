@@ -17,3 +17,22 @@ This project in it entirity, from data cleaning to the interactive dashboard, wi
 - Compare the effects of mean imputation vs median imputation on missing values.
 - Perform EDA to explore trends and patterns.
 - Build an interactive dashboard
+
+### Data Source
+The data used in this project is the **Dirty Cafe Sales** dataset from Kaggle. The data is *synthetic*, intentionally designed to simulate real-world data issues, making it ideal to practice data cleaning and preparation techniques.
+
+#### Data Summary
+- Source: Kaggle
+- Type: Synthetic data
+- Format: XLS
+- Size: 10000 rows by 8 columns
+- Time: This data represents one year of sales(2023)
+
+#### Visible Data Quality Issues
+The dataset contains common real-world issues, including:
+- Missing values/ blanks- the data contains blanks in 7 of the 8 columns.
+- Invalid entries, e.g BLANK, ERROR, UNKNOWN
+- Incorrect data type
+
+#### License
+The data is publicly available on Kaggle for education and portfolio use. To download the latest version of the data, [Click Here](https://www.kaggle.com/datasets/ahmedmohamed2003/cafe-sales-dirty-data-for-cleaning-training).   
