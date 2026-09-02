@@ -35,4 +35,4 @@ The dataset contains common real-world issues, including:
 - Incorrect data type
 
 #### License
-The data is publicly available on Kaggle for education and portfolio use. To download the latest version of the data, [Click Here](https://www.kaggle.com/datasets/ahmedmohamed2003/cafe-sales-dirty-data-for-cleaning-training).   
+The data is publicly available on Kaggle for education and portfolio use. To download the latest version of the data and read the column descriptions, [Click Here](https://www.kaggle.com/datasets/ahmedmohamed2003/cafe-sales-dirty-data-for-cleaning-training).   
