@@ -19,7 +19,7 @@ This project in it entirity, from data cleaning to the interactive dashboard, wi
 - Build an interactive dashboard
 
 ### Data Source
-The data used in this project is the **Dirty Cafe Sales** dataset from Kaggle. The data is *synthetic*, intentionally designed to simulate real-world data issues, making it ideal to practice data cleaning and preparation techniques.
+The data used in this project is the **Dirty Cafe Sales** dataset from Kaggle. The data is *synthetic*, intentionally designed to simulate real-world data issues, making it ideal for practicing data cleaning and preparation techniques.
 
 #### Data Summary
 - Source: Kaggle
