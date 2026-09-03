@@ -10,7 +10,7 @@ Two common imputation methods, mean imputation and median imputation, are going 
 
 The cleaned data will then be explored through EDA to uncover patterns and trends in the cafe sales, such as the best-selling item, sales trends in the year 2023, and revenue distribution. These reports will then be brought together into an interactive Excel dashboard, allowing stakeholders to visually explore cafe sales performance at a glance.
 
-This project in it entirity, from data cleaning to the interactive dashboard, will be executed exclusively in **Microsoft Excel**, showcasing not only how far Excel built-in tools can be pushed to handle a full structure data analysis workflow, but also my expertise in Excel formulas, PivotTables, PivotCharts, conditional formatting, and data validation.
+This project in it entirity, from data cleaning to the interactive dashboard, will be executed exclusively in **Microsoft Excel**, showcasing not only how far Excel's built-in tools can be pushed to handle a full structure data analysis workflow, but also my expertise in Excel formulas, PivotTables, PivotCharts, conditional formatting, and data validation.
 
 **Objectives**
 - Clean the dirty sales dataset while minimizing the amount of data deleted.
