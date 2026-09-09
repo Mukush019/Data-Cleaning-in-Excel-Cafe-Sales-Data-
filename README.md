@@ -36,3 +36,36 @@ The dataset contains common real-world issues, including:
 
 #### License
 The data is publicly available on Kaggle for education and portfolio use. To download the latest version of the data, [Click Here](https://www.kaggle.com/datasets/ahmedmohamed2003/cafe-sales-dirty-data-for-cleaning-training).   
+
+I created a copy of the data using the following VBA code
+
+``` 
+Sub CopyTableToProcessingSheet()
+    Dim ws1 As Worksheet
+    Dim ws2 As Worksheet
+    Dim tb1 As ListObject
+    
+    Set ws1 = Sheets("Cafe Sales")
+    Set ws2 = Sheets("Processing Sheet")
+    
+    'Reference table by name
+    On Error Resume Next
+    Set tb1 = ws1.ListObjects("DirtyCafeSalesData")
+    On Error GoTo 0
+    
+    If tb1 Is Nothing Then
+        MsgBox "Table 'DirtyCafeSalesData' not found on Cafe Sales. ", vbExclamation
+        Exit Sub
+    End If
+    
+    ' Copy the data now
+    ' Preserve the formats, color, font, borders
+    
+    tb1.Range.Copy Destination:=ws2.Range("A1")
+    
+    'Clear clipboard
+    Application.CutCopyMode = False
+    
+    MsgBox "Table copied successfully", vbInformation
+End Sub
+```
