@@ -28,9 +28,20 @@ The data used in this project is the **Dirty Cafe Sales** dataset from Kaggle. T
 - Size: 10000 rows by 8 columns
 - Time: This data represents one year of sales(2023)
 
+##### Columns in the dataset
+* `Transaction ID` - Unique identifier ID for the sales made at the cafe.
+* `Item` - what a customer bought at the cafe.
+           That includes: `Coffee`, `Tea`, `Salad`, `Sandwich`, `Cookie`, `Cake`, `Smoothie`, `Juice`
+* `Quantity` - number of items bought by a customer.
+* `Price Per Unit` - price of each item.
+* `Total Spent` - a product of ***`Quantity`*** and ***`Price Per Unit`***.
+* `Payment Method` - means of payment. Includes: `Cash`, `Credit Card`, or `Digital Wallet`.
+* `Location` - where the customer eats/drinks their order. Could be: `In-Store` or `Takeaway`.
+* `Transaction Date` - date of transaction **ONLY** the year `2023`.        
+
 #### Visible Data Quality Issues
 The dataset contains common real-world issues, including:
-- Missing values/ blanks- the data contains blanks in 7 of the 8 columns.
+- Missing values/ blanks: the data contains blanks in 7 of the 8 columns.
 - Invalid entries, e.g BLANK, ERROR, UNKNOWN
 - Incorrect data type
 
