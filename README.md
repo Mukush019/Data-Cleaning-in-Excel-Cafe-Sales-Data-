@@ -87,6 +87,8 @@ End Sub
 > [!Note]
 > This will be a recurring process until I achieve clean data.
 
+###### Item Column Cleaning 
+
 A formula that cleans the `Item` column. This formula fills the cells where there is `UNKNOWN`, `ERROR`, or `(blanks)`. 
 The formula follows the following steps:
 1. Divides `Total Spent` by `Quantity` to fill in the `UNKNOWN`, `ERROR`, or `(blanks)` for the price per unit column. Cells with a value are not calculated.
@@ -116,3 +118,4 @@ The formula follows the following steps:
         )
      )
 ~~~ 
+###### Quantity Column
