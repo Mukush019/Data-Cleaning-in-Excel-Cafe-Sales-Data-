@@ -96,26 +96,74 @@ The formula follows the following steps:
 
 * We have two new values in the item column, `Sandwich or Smoothie` and `Cake or Juice`. This is because these products share a price, and I could not determine the exact product. 
 
-~~~ excel
-= LET(
-             effprice,
-                  IFERROR(
-                                    IF(OR([@[Price Per Unit]] = "", [@[Price Per Unit]]= "UNKNOWN",[@[Price Per Unit]]= "ERROR"),
-                                                 [@[Total Spent]]/[@Quantity],
-                                                  [@[Price Per Unit]]),
-                                    ""
-                                    ),
-               IFS(
-               NOT(OR([@Item] = "UNKNOWN", [@Item] = "ERROR", [@Item] = "")),
-                     [@Item],
-               effprice = 2, "Coffee",
-              effprice = 1.5, "Tea",
-              effprice = 1, "Cookie",
-              effprice = 5, "Salad",
-              effprice = 4, "Sandwich or Smoothie",
-              effprice = 3, "Cake or Juice",
-              TRUE,                 ""
-        )
-     )
+~~~ excel-formula
+           = LET(
+                        effprice,
+                             IFERROR(
+                                               IF(OR([@[Price Per Unit]] = "", [@[Price Per Unit]]= "UNKNOWN",[@[Price Per Unit]]= "ERROR"),
+                                                            [@[Total Spent]]/[@Quantity],
+                                                             [@[Price Per Unit]]),
+                                               ""
+                                               ),
+                          IFS(
+                          NOT(OR([@Item] = "UNKNOWN", [@Item] = "ERROR", [@Item] = "")),
+                                [@Item],
+                          effprice = 2, "Coffee",
+                         effprice = 1.5, "Tea",
+                         effprice = 1, "Cookie",
+                         effprice = 5, "Salad",
+                         effprice = 4, "Sandwich or Smoothie",
+                         effprice = 3, "Cake or Juice",
+                         TRUE,                 ""
+                   )
+                )
 ~~~ 
 ###### Quantity Column
+
+The `Quantity` column has *unknown*, *error*, and *blanks*. To clean this column, I divided `Total Spent` by `Price Per Unit`. For cleaner results I had to first clean `Price Per Unit` as will be shown later. The formula used is as shown below. 
+
+~~~ excel-formula
+           =IFS(
+          NOT(OR([@Quantity] = "UNKNOWN", [@Quantity] = "ERROR", [@Quantity] = "")),
+          [@Quantity],
+         NOT(OR([@[Total Spent]]= "", [@[Total Spent]]= "ERROR", [@[Total Spent]]= "UNKNOWN",
+                             [@[Price Per Unit(New)]]= ""
+                      )),
+                   [@[Total Spent]] / [@[Price Per Unit(New)]],
+        TRUE, ""
+        )
+~~~
+
+###### Price Per Unit Column
+
+To clean the `Price Per Unit` column, all we need is the `Item(New)` Column. I have the price of each item. Here's the formula used.
+~~~
+           =IFS(
+           NOT(OR([@[Price Per Unit]]  = "", [@[Price Per Unit]] = "UNKNOWN", [@[Price Per Unit]] = "ERROR")),
+           [@[Price Per Unit]],
+           [@[Item(New)]] = "Coffee", 2,
+           [@[Item(New)]] = "Tea", 1.5,
+           [@[Item(New)]] = "Sandwich", 4,
+           [@[Item(New)]] = "Salad", 5,
+           [@[Item(New)]] = "Cake", 3,
+           [@[Item(New)]] = "Cookie", 1,
+           [@[Item(New)]] = "Smoothie", 4,
+           [@[Item(New)]] = "Juice", 3,
+           [@[Item(New)]] = "Cake or Juice", 3,
+          [@[Item(New)]] = "Sandwich or Smoothie", 4,
+   TRUE, ""
+)
+~~~
+
+###### Total Spent Column
+
+To clean this, all we need is the product of `Price Per Unit(New)` and `Quantity`. The formula used is:
+
+~~~
+           =IFS(
+                       NOT(OR([@[Total Spent]] = "", [@[Total Spent]] = "UNKNOWN", [@[Total Spent]] = "ERROR")), [@[Total Spent]],
+                       OR([@[Total Spent]] = "", [@[Total Spent]] = "UNKNOWN", [@[Total Spent]] = "ERROR"),
+                             IFERROR( [@[Quantity(New)]] * [@[Price Per Unit(New)]], ""),
+                      TRUE, ""
+                     )
+~~~
