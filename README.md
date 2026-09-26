@@ -167,3 +167,5 @@ To clean this, all we need is the product of `Price Per Unit(New)` and `Quantity
                       TRUE, ""
                      )
 ~~~
+
+###### Total Spent Column
