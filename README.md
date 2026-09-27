@@ -66,7 +66,7 @@ Sub CopyTableToProcessingSheet()
     On Error GoTo 0
     
     If tb1 Is Nothing Then
-        MsgBox "Table 'DirtyCafeSalesData' not foundon Cafe Sales. ", vbExclamation
+        MsgBox "Table 'DirtyCafeSalesData' not found on Cafe Sales. ", vbExclamation
         Exit Sub
     End If
     
