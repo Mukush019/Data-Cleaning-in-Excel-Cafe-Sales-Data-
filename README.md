@@ -1,4 +1,4 @@
-# Data Cleaning and Visualization of Cafe Sales Data
+# Cafe Sales Data Cleaning & Dashboard: A Mean VS Median Imputation Study in Excel
 
 ### Project Overview
 
